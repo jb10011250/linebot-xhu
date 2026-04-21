@@ -1,0 +1,9 @@
+Channel access token：
+vHp2YBVQZ/Ns+yfm0CSe/ofwFqfqnMyVhM4Tg1JfVJAY9tJK7nrEaivld8tHT8lpFJzxJc0XymeecCJLzJdmRk4ZZSIKpRfJB1oeFNPUssCvDiXpKZQqwyfks0zwzCUDvTntQ0T3FdnAr1XYu/y/rQdB04t89/1O/w1cDnyilFU=
+
+Channel secret：
+b32b197258c113b8b4ca4cfe4cdecb1b
+
+
+Your user ID：
+Uc7e37fcc49f0817f5021018032e0d60b
