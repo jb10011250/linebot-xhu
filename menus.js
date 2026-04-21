@@ -1,29 +1,43 @@
-// 機器人自動轉換產生的回應對照表 (Code -> Messages)
-// 執行 node build.js 會覆蓋此檔案，請勿直接修改。
+// 機器人自動轉換產生的回應對照表
 const carousels = require('./carousels');
 require('dotenv').config();
-
 const BASE_URL = process.env.BASE_URL || 'https://linebot-xhu.onrender.com';
 
 module.exports.getReply = function(code) {
   const replies = {
-    // --- 手動設定的特殊業務入口輪播與預設訊息 ---
     'NKW': [
       { type: 'text', text: '您好！\n有任何地政相關的問題歡迎輸入以下數字取得更多相關資訊，或撥打本所電話03-5903588，將有人員進一步協助您！\n【 1 】－上班時間\n【 2 】－聯絡電話\n【 3 】－地所住址\n【 4 】－官方網站\n【 5 】－粉絲專頁\n【 6 】－其他問題\n快邀請親朋好友一起加入官方LINE，將會不定時收到最新活動消息唷！' },
       { type: 'text', text: '新湖地政官方帳號提供線上諮詢服務\n點選下方圖示可進行簡易的地政諮詢~\n若您想詢問其他問題，歡迎撥打本所電話03-5903588，將由專人為您解答，謝謝您！' },
       carousels.mainMenu(BASE_URL) 
     ],
+    // 以下為動態生成的 6 大業務入口
     'A0': [
-      { type: 'text', text: '請選擇您想了解的【登記業務】項目：' },
-      carousels.registrationMenu1(BASE_URL)
+      { type: 'text', text: '請選擇【登記業務諮詢】項目：' },
+      carousels.dynamicCarousel([{"code":"A1","label":"如何申請地籍謄本","keyword":"謄本申請","thumbnail":""},{"code":"A2","label":"登記費、書狀費如何計算","keyword":"登記規費","thumbnail":""},{"code":"A3","label":"如何查詢登記案件公告","keyword":"公告","thumbnail":""},{"code":"A4","label":"如何查詢登記案件辦理情形","keyword":"登記案件辦理情形","thumbnail":""},{"code":"A5","label":"哪些登記案件可以跨所申請","keyword":"跨所登記","thumbnail":""},{"code":"A6","label":"地政便民工作站有哪些服務","keyword":"便民工作站","thumbnail":""},{"code":"A7","label":"如何申請住址變更","keyword":"住址變更","thumbnail":""},{"code":"A8","label":"如何查詢名下不動產資料","keyword":"歸戶查詢","thumbnail":""},{"code":"A9","label":"地政相關表單下載","keyword":"書表下載","thumbnail":""},{"code":"A10","label":"常見登記案件申辦須知","keyword":"案件辦理須知","thumbnail":""}], BASE_URL),
+      carousels.dynamicCarousel([{"code":"A11","label":"如何辦理繼承","keyword":"繼承","thumbnail":""},{"code":"A12","label":"如何辦理地籍異動即時通","keyword":"地籍異動即時通","thumbnail":""},{"code":"A13","label":"如何辦理住址隱匿","keyword":"住址隱匿","thumbnail":""},{"code":"A14","label":"如何線上辦理土地登記","keyword":"數位櫃台","thumbnail":""},{"code":"A15","label":"如何查詢合法地政士","keyword":"地政士","thumbnail":""},{"code":"A16","label":"外籍及大陸地區人士專區","keyword":"外國人","thumbnail":""}], BASE_URL)
     ],
-    'B0': [ { type: 'text', text: '本區為【測量業務諮詢】(輪播圖尚未建置，可先嘗試輸入「鑑界規費試算」)' } ],
-    'C0': [ { type: 'text', text: '本區為【地價業務諮詢】(輪播圖尚未建置，可先嘗試輸入「301」)' } ],
-    'D0': [ { type: 'text', text: '本區為【資訊業務諮詢】(輪播圖尚未建置)' } ],
-    'E0': [ { type: 'text', text: '本區為【地用業務諮詢】(輪播圖尚未建置)' } ],
-    'F0': [ { type: 'text', text: '本區為【檔案及其他綜合業務諮詢】(輪播圖尚未建置)' } ],
+    'B0': [
+      { type: 'text', text: '請選擇【測量業務諮詢】項目：' },
+      carousels.dynamicCarousel([{"code":"B1","label":"鑑界規費怎麼算","keyword":"鑑界規費試算","thumbnail":""},{"code":"B2","label":"辦理土地複丈需要購買界標嗎","keyword":"界標","thumbnail":""},{"code":"B3","label":"法院會同地點在哪／如何繳費","keyword":"法院案件查詢","thumbnail":""},{"code":"B4","label":"如何查詢測量案件辦理情形","keyword":"測量案件辦理情形","thumbnail":""},{"code":"B5","label":"地政士如何繪製測量成果圖","keyword":"單機版建物測量繪圖軟體","thumbnail":""},{"code":"B6","label":"如何簡化申請建物第一次測量","keyword":"簡化建物第一次測量","thumbnail":""},{"code":"B7","label":"何時需要檢附建物地籍測繪資料","keyword":"建物地籍測繪資料","thumbnail":""},{"code":"B8","label":"辦理土地複丈如何收費","keyword":"測量規費","thumbnail":""}], BASE_URL)
+    ],
+    'C0': [
+      { type: 'text', text: '請選擇【地價業務諮詢】項目：' },
+      carousels.dynamicCarousel([{"code":"C1","label":"如何查詢公告土地現值","keyword":"公告土地現值","thumbnail":""},{"code":"C2","label":"如何試算土地增值稅","keyword":"增值稅試算","thumbnail":""},{"code":"C3","label":"更多實價登錄相關資訊","keyword":"實價登錄","thumbnail":""},{"code":"C4","label":"如何申報買賣實價登錄","keyword":"買賣實價登錄","thumbnail":""},{"code":"C5","label":"如何申報租賃及預售屋實價登錄","keyword":"預售屋實價登錄","thumbnail":""},{"code":"C6","label":"如何查詢實價登錄資訊","keyword":"實價登錄查詢網站","thumbnail":""},{"code":"C7","label":"實價登錄的申報期限","keyword":"申報期限","thumbnail":""},{"code":"C8","label":"哪些情形需要申報實價登錄","keyword":"實價登錄申報種類","thumbnail":""}], BASE_URL)
+    ],
+    'D0': [
+      { type: 'text', text: '請選擇【資訊業務諮詢】項目：' },
+      carousels.dynamicCarousel([{"code":"D1","label":"地籍謄本櫃員機有哪些服務","keyword":"地籍謄本櫃員機","thumbnail":""},{"code":"D2","label":"如何申請土地基本資料","keyword":"土地基本資料申請","thumbnail":""},{"code":"D3","label":"土地基本資料如何收費","keyword":"土地基本資料收費","thumbnail":""}], BASE_URL)
+    ],
+    'E0': [
+      { type: 'text', text: '請選擇【地用業務諮詢】項目：' },
+      carousels.dynamicCarousel([{"code":"E1","label":"辦理更正編定須準備什麼","keyword":"更正編定","thumbnail":""},{"code":"E2","label":"辦理變更編定須準備什麼","keyword":"變更編定","thumbnail":""},{"code":"E3","label":"如何查詢土地參考資訊檔","keyword":"土地參考資訊檔","thumbnail":""},{"code":"E4","label":"如何查詢國土計畫法相關資料","keyword":"國土計劃","thumbnail":""},{"code":"E5","label":"農地違規使用有什麼罰則","keyword":"違規使用","thumbnail":""},{"code":"E6","label":"如何查詢土地容許使用項目","keyword":"容許使用","thumbnail":""},{"code":"E7","label":"更多土地使用相關資訊","keyword":"地用","thumbnail":""}], BASE_URL)
+    ],
+    'F0': [
+      { type: 'text', text: '請選擇【檔案及綜合業務】項目：' },
+      carousels.dynamicCarousel([{"code":"F1","label":"申請檔案應用需要準備什麼","keyword":"檔案應用","thumbnail":""},{"code":"F2","label":"申請擔任志工需要準備什麼","keyword":"志工招募","thumbnail":""},{"code":"F3","label":"申請寒暑假青年志工需要準備什麼","keyword":"青年志工","thumbnail":""}], BASE_URL)
+    ],
 
-    // --- Excel 動態擷取的資料 ---
+    // --- Excel 動態擷取的子業務資料 ---
     'RM-1': [
       { type: 'text', text: `【連結】新湖地政所官方網站` }
     ],

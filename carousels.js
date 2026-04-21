@@ -120,3 +120,49 @@ module.exports.registrationMenu1 = (BASE_URL) => ({
     ]
   }
 });
+
+// 動態產生子選單的通用 Carousel
+module.exports.dynamicCarousel = (items, BASE_URL) => {
+  return {
+    type: 'flex',
+    altText: '請選擇業務項目',
+    contents: {
+      type: 'carousel',
+      contents: items.map(item => {
+        // 基本的底層 Bubble 結構
+        let bubble = {
+          type: 'bubble',
+          size: 'micro', // 放縮圖用小卡比較精緻
+          body: {
+            type: 'box',
+            layout: 'vertical',
+            paddingAll: 'md',
+            contents: [{
+              type: 'button',
+              action: { type: 'message', label: String(item.label).substring(0,20), text: item.keyword },
+              style: 'primary',
+              color: '#1565C0'
+            }]
+          }
+        };
+
+        // 如果填了【選單縮圖】，就掛載 Hero Image
+        if (item.thumbnail) {
+          let url = item.thumbnail;
+          if (!url.startsWith('http')) url = `${BASE_URL}/public/${url}`;
+            
+          bubble.hero = {
+            type: 'image',
+            url: url,
+            size: 'full',
+            aspectRatio: '1:1',
+            aspectMode: 'cover'
+          };
+          // 若有圖，我們把按鈕改成 secondary
+          bubble.body.contents[0].style = 'secondary';
+        }
+        return bubble;
+      })
+    }
+  };
+};

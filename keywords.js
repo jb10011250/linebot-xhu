@@ -1,5 +1,4 @@
-// 機器人自動轉換產生的關鍵字對照表 (Key -> Code)
-// 執行 node build.js 會覆蓋此檔案，請勿直接修改。
+// 機器人自動轉換產生的關鍵字對照表
 module.exports.keywordMap = {
   '1': 'NUM-1',
   '2': 'NUM-2',
