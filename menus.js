@@ -199,7 +199,6 @@ https://land.tycg.gov.tw/News.aspx?n=3946&sms=10047
       { type: 'text', text: `阿吸，您好！
 ■　繼承登記申辦須知及申請書範例連結點如下：
 https://land.tycg.gov.tw/News_Content.aspx?n=3946&s=688348` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR一般繼承空白表單申請書,登記清冊,繼承系統表,權狀切結書.jpg`, previewImageUrl: `${BASE_URL}/public/QR一般繼承空白表單申請書,登記清冊,繼承系統表,權狀切結書.jpg` },
       { type: 'text', text: `阿吸您好~ 本所LINE+ibon卡厲害~ 為您搜尋到的文件如下：  
 【一般繼承登記-空白表單】
 ■ 列印代碼如下：
@@ -212,7 +211,8 @@ https://www.asuswebstorage.com/navigate/a/#/s/7C52A6CD72D445FC8C3B5006721D00F06
 ■ 電子檔下載點：
 https://www.asuswebstorage.com/navigate/a/#/s/A24DBF7C50704DE393B54529609185D26
 
-如查詢不到您想要的資料，可洽本所 03-4917647 協助您~` }
+如查詢不到您想要的資料，可洽本所 03-4917647 協助您~` },
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR一般繼承空白表單申請書,登記清冊,繼承系統表,權狀切結書.jpg`, previewImageUrl: `${BASE_URL}/public/QR一般繼承空白表單申請書,登記清冊,繼承系統表,權狀切結書.jpg` }
     ],
     'A12': [
       { type: 'text', text: `阿吸您好~ 
@@ -432,7 +432,6 @@ https://www.asuswebstorage.com/navigate/a/#/s/74FDF4AB29D64E07B8BBE42A3F4E75B26
       { type: 'text', text: `阿吸，您好！
 有關檔案應用申請相關說明，可參閱本所官網檔案應用專區Q&A資訊，連結如下：
 https://www.zhongli-land.tycg.gov.tw/archive_QA.htm` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR檔案應用申請書.jpg`, previewImageUrl: `${BASE_URL}/public/QR檔案應用申請書.jpg` },
       { type: 'text', text: `本所LINE+ibon卡厲害~ 為您搜尋到的文件如下： 
 【檔案應用申請書】
 ■　列印代碼如下：
@@ -447,13 +446,13 @@ https://www.asuswebstorage.com/navigate/a/#/s/9578C16467DC4329B9BF12B95B74768F6
 https://www.asuswebstorage.com/navigate/a/#/s/981FD14C2794402F904EA435F6D007DC6
 
 如查詢不到您想要的資料，可洽本所 03-4917647 分機413燕先生協助您~` },
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR檔案應用申請書.jpg`, previewImageUrl: `${BASE_URL}/public/QR檔案應用申請書.jpg` },
       { type: 'image', originalContentUrl: `${BASE_URL}/public/QR檔案應用代理人委任書`, previewImageUrl: `${BASE_URL}/public/QR檔案應用代理人委任書` }
     ],
     'REG-913': [
       { type: 'text', text: `阿吸，您好！
 辦理更正編定，可向土地所在地政事務所申請，除門牌編釘證明(佐證資料)及航照圖(佐證資料)外，請檢具檢具以下其一文件：
 曾於該建物設籍之戶籍謄本、繳納房屋稅籍證明、用電證明或繳納自來水費用證明、建物完工證明書或其他證明文件。` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR更正編定申請書.jpg`, previewImageUrl: `${BASE_URL}/public/QR更正編定申請書.jpg` },
       { type: 'text', text: `本所LINE+ibon卡厲害服務~ 為您搜尋到的文件如下： 
 【更正編定申請書】
 ■ 　列印代碼如下：
@@ -466,7 +465,8 @@ https://www.asuswebstorage.com/navigate/a/#/s/94EEE13CF36646168905E84DC1E90F1B6
 ■ 　電子檔下載點：
 https://www.asuswebstorage.com/navigate/a/#/s/C0E5EAEA43574243AFAA2994D367E0656
 
-如您尚有其他問題，可撥打本所電話03-4917647分機414或419，將有專人進一步協助您，謝謝您！` }
+如您尚有其他問題，可撥打本所電話03-4917647分機414或419，將有專人進一步協助您，謝謝您！` },
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR更正編定申請書.jpg`, previewImageUrl: `${BASE_URL}/public/QR更正編定申請書.jpg` }
     ],
     'REG-914': [
       { type: 'text', text: `阿吸您好~ 本所LINE+ibon卡厲害~ 為您搜尋到的文件如下： 

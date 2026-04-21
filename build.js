@@ -58,8 +58,8 @@ try {
 
     let messages = [];
     if (w1) messages.push(`{ type: 'text', text: \`${escapeText(w1)}\` }`);
-    if (p1) messages.push(`{ type: 'image', originalContentUrl: ${buildImageUrlSnippet(p1)}, previewImageUrl: ${buildImageUrlSnippet(p1)} }`);
     if (w2) messages.push(`{ type: 'text', text: \`${escapeText(w2)}\` }`);
+    if (p1) messages.push(`{ type: 'image', originalContentUrl: ${buildImageUrlSnippet(p1)}, previewImageUrl: ${buildImageUrlSnippet(p1)} }`);
     if (p2) messages.push(`{ type: 'image', originalContentUrl: ${buildImageUrlSnippet(p2)}, previewImageUrl: ${buildImageUrlSnippet(p2)} }`);
 
     if (messages.length > 0) {
