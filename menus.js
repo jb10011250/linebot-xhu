@@ -7,20 +7,21 @@ const BASE_URL = process.env.BASE_URL || 'https://linebot-xhu.onrender.com';
 
 module.exports.getReply = function(code) {
   const replies = {
-    // --- 手動設定的業務入口輪播 (不會被 Excel 覆寫) ---
+    // --- 手動設定的特殊業務入口輪播與預設訊息 ---
     'NKW': [
-      { type: 'text', text: '您好！\n有任何地政相關問題，歡迎點擊下方主選單，或輸入代碼查詢。' },
-      carousels.mainMenu() 
+      { type: 'text', text: '您好！\n有任何地政相關的問題歡迎輸入以下數字取得更多相關資訊，或撥打本所電話03-5903588，將有人員進一步協助您！\n【 1 】－上班時間\n【 2 】－聯絡電話\n【 3 】－地所住址\n【 4 】－官方網站\n【 5 】－粉絲專頁\n【 6 】－其他問題\n快邀請親朋好友一起加入官方LINE，將會不定時收到最新活動消息唷！' },
+      { type: 'text', text: '新湖地政官方帳號提供線上諮詢服務\n點選下方圖示可進行簡易的地政諮詢~\n若您想詢問其他問題，歡迎撥打本所電話03-5903588，將由專人為您解答，謝謝您！' },
+      carousels.mainMenu(BASE_URL) 
     ],
     'A0': [
       { type: 'text', text: '請選擇您想了解的【登記業務】項目：' },
-      carousels.registrationMenu1()
+      carousels.registrationMenu1(BASE_URL)
     ],
-    'B0': [ { type: 'text', text: '本區為【測量業務諮詢】(輪播圖尚未建置)' } ],
-    'C0': [ { type: 'text', text: '本區為【地價業務諮詢】(輪播圖尚未建置)' } ],
+    'B0': [ { type: 'text', text: '本區為【測量業務諮詢】(輪播圖尚未建置，可先嘗試輸入「鑑界規費試算」)' } ],
+    'C0': [ { type: 'text', text: '本區為【地價業務諮詢】(輪播圖尚未建置，可先嘗試輸入「301」)' } ],
     'D0': [ { type: 'text', text: '本區為【資訊業務諮詢】(輪播圖尚未建置)' } ],
     'E0': [ { type: 'text', text: '本區為【地用業務諮詢】(輪播圖尚未建置)' } ],
-    'F0': [ { type: 'text', text: '本區為【檔案及其他業務】(輪播圖尚未建置)' } ],
+    'F0': [ { type: 'text', text: '本區為【檔案及其他綜合業務諮詢】(輪播圖尚未建置)' } ],
 
     // --- Excel 動態擷取的資料 ---
     'RM-1': [
@@ -40,36 +41,6 @@ module.exports.getReply = function(code) {
     ],
     'RM-6': [
       { type: 'text', text: `分享此官方LINE給好友` }
-    ],
-    'NKW-1': [
-      { type: 'text', text: `阿吸，您好！
-有任何地政相關的問題歡迎(pencil)輸入以下數字取得更多相關資訊，或撥打本所電話03-5903588，將有人員進一步協助您！
-【 1 】－(sunny)上班時間
-【 2 】－(telephone)聯絡電話
-【 3 】－(school)地所住址
-【 4 】－(monitor)官方網站
-【 5 】－(smartphone)粉絲專頁
-【 6 】－ 💌其他問題
-快邀請親朋好友一起加入官方LINE，將會不定時收到最新活動消息唷！(two hearts)` }
-    ],
-    'NKW-2': [
-      { type: 'text', text: `新湖地政官方帳號提供(texting)線上諮詢服務
-點選下方圖示可進行簡易的地政諮詢~
-若您想詢問其他問題，歡迎撥打本所電話03-5903588，將由專人為您解答，謝謝您！` }
-    ],
-    'NKW-3': [
-      { type: 'text', text: `（圖片輪播）六大業務選單圖` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/登記業務諮詢.jpg
-測量業務諮詢.jpg
-地價業務諮詢.jpg
-資訊業務諮詢.jpg
-地用業務諮詢.jpg
-檔案應用其他綜合業務諮詢.jpg`, previewImageUrl: `${BASE_URL}/public/登記業務諮詢.jpg
-測量業務諮詢.jpg
-地價業務諮詢.jpg
-資訊業務諮詢.jpg
-地用業務諮詢.jpg
-檔案應用其他綜合業務諮詢.jpg` }
     ],
     'NUM-1': [
       { type: 'text', text: `阿吸，您好！
