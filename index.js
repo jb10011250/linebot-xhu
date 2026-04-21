@@ -12,6 +12,10 @@ const config = {
 const client = new line.Client(config);
 const app = express();
 
+// 讓 public 資料夾內的圖片檔案可以直接經由網址讀取
+// 例如: https://你的網址/public/abc.jpg 會讀取 public/abc.jpg
+app.use('/public', express.static('public'));
+
 app.get('/', (req, res) => {
   res.send('Bot is alive. Webhook 準備就緒。');
 });
