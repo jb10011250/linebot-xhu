@@ -4,11 +4,10 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
-// 模型設定 (完全淘汰 1.5 舊時代世代！主力回歸您擁有 1500 次配額的 Gemma 4)
+// 模型設定 (依據 2026 最新測試雷達結果：剔除 404 與 429 的失效模型，剔除會亂吐草稿的 Gemma)
 const MODELS = [
-  "gemma-4-31b-it",                // 第一主力：您的 1500 次高額度模型
-  "gemini-3.1-flash-lite-preview", // 第二備援：實驗版最新輕量化模型
-  "gemini-3.0-flash"               // 終極備援：理論上的現代穩定版
+  "gemini-2.5-flash-lite",         // 第一主力：輕快、無草稿、高配額存活
+  "gemini-3.1-flash-lite-preview"  // 第二備援：最新測試版穩定存活
 ];
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || "");
