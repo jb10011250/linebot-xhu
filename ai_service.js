@@ -4,10 +4,11 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
-// 模型設定 (使用具體版本號以修正 404 錯誤)
+// 模型設定 (完全淘汰 1.5 舊時代世代！主力回歸您擁有 1500 次配額的 Gemma 4)
 const MODELS = [
-  "gemini-1.5-flash-latest", // 主力：自動指向最新穩定版
-  "gemini-1.5-flash-002"     // 備援：具體指定版本
+  "gemma-4-31b-it",                // 第一主力：您的 1500 次高額度模型
+  "gemini-3.1-flash-lite-preview", // 第二備援：實驗版最新輕量化模型
+  "gemini-3.0-flash"               // 終極備援：理論上的現代穩定版
 ];
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || "");
@@ -66,7 +67,8 @@ async function getAIResponse(userMessage, userName = "民眾") {
 4. 專業領域僅限：地政、不動產、房屋稅務、測量工程、土地規劃、房市新聞。
 5. 語氣要求：語氣親切、專業、有耐心，多用「您」來稱呼對方。
 6. 格式要求：盡量使用條列式，段落清晰，適合於 LINE 手機畫面閱讀。
-7. 【極度重要限制】：請「直接」輸出最終要對民眾說的話。絕對禁止輸出任何內部的思考過程（例如 User:, Question:, Rules:, 或是英文的推理步驟）。我們只需要最終的中文回覆文字。
+7. 【極度重要限制】：輸出應直接進入內容主體。絕對禁止輸出任何思考過程、內心獨白或 <thought>、<rules> 標籤。請針對問題直接給出最終要傳給民眾的解答。
+8. 你的回覆第一句「必須」是類似「您好！」或「為您整理如下：」的對話開頭。
 
 【地政業務官方知識庫開始】
 ${kbText}
