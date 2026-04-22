@@ -47,7 +47,7 @@ module.exports.dynamicGrid = (items, BASE_URL) => {
         url: url,
         size: 'full',
         aspectMode: 'cover',
-        aspectRatio: '1.5:1', // 使用更穩定的比例
+        aspectRatio: '1:1.3', // 恢復原本適合六宮格的直條形比例
         action: { type: 'message', label: String(item.label).substring(0, 20), text: item.keyword },
         flex: 1
       };
@@ -65,7 +65,7 @@ module.exports.dynamicGrid = (items, BASE_URL) => {
     altText: '請點擊六宮格業務選項',
     contents: {
       type: 'bubble',
-      size: 'mega', // 使用標準尺寸最穩定
+      size: 'giga', // 恢復六宮格的最大滿版顯示
       body: {
         type: 'box',
         layout: 'vertical',
