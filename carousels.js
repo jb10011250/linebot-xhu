@@ -22,90 +22,7 @@ function bubbleButton(label, keyword, color) {
   };
 }
 
-// 主選單 (六大業務入口 - NKW-3)
-// 這裡將原本的純文字按鈕，改為直接使用您這六張圖拼合成的「無縫 Flex Message 六宮格」
-module.exports.mainMenu = (BASE_URL) => ({
-  type: 'flex',
-  altText: '請點擊六宮格業務選項',
-  contents: {
-    type: 'bubble',
-    body: {
-      type: 'box',
-      layout: 'vertical',
-      paddingAll: '0px', // 滿版
-      contents: [
-        {
-          type: 'box',
-          layout: 'horizontal',
-          contents: [
-            {
-              type: 'image',
-              url: `${BASE_URL}/public/登記業務諮詢.jpg`,
-              size: 'full',
-              aspectMode: 'cover',
-              aspectRatio: '1:1.3',
-              action: { type: 'message', label: '登記業務諮詢', text: '登記業務諮詢' },
-              flex: 1
-            },
-            {
-              type: 'image',
-              url: `${BASE_URL}/public/測量業務諮詢.jpg`,
-              size: 'full',
-              aspectMode: 'cover',
-              aspectRatio: '1:1.3',
-              action: { type: 'message', label: '測量業務諮詢', text: '測量業務諮詢' },
-              flex: 1
-            },
-            {
-              type: 'image',
-              url: `${BASE_URL}/public/地價業務諮詢.jpg`,
-              size: 'full',
-              aspectMode: 'cover',
-              aspectRatio: '1:1.3',
-              action: { type: 'message', label: '地價業務諮詢', text: '地價業務諮詢' },
-              flex: 1
-            }
-          ]
-        },
-        {
-          type: 'box',
-          layout: 'horizontal',
-          contents: [
-            {
-              type: 'image',
-              url: `${BASE_URL}/public/資訊業務諮詢.jpg`,
-              size: 'full',
-              aspectMode: 'cover',
-              aspectRatio: '1:1.3',
-              action: { type: 'message', label: '資訊業務諮詢', text: '資訊業務諮詢' },
-              flex: 1
-            },
-            {
-              type: 'image',
-              url: `${BASE_URL}/public/地用業務諮詢.jpg`,
-              size: 'full',
-              aspectMode: 'cover',
-              aspectRatio: '1:1.3',
-              action: { type: 'message', label: '地用業務諮詢', text: '地用業務諮詢' },
-              flex: 1
-            },
-            {
-              type: 'image',
-              url: `${BASE_URL}/public/檔案應用其他綜合業務諮詢.jpg`,
-              size: 'full',
-              aspectMode: 'cover',
-              aspectRatio: '1:1.3',
-              action: { type: 'message', label: '檔案應用', text: '檔案應用其他綜合業務諮詢' },
-              flex: 1
-            }
-          ]
-        }
-      ]
-    }
-  }
-});
-
-// A0 - 登記業務諮詢 第一組輪播 (若尚未提供圖片，暫時保留預設按鈕，未來可依樣畫葫蘆改掉)
+// A0 - 登記業務諮詢 第一組輪播 (舊的靜態範本，若有需要可保留)
 module.exports.registrationMenu1 = (BASE_URL) => ({
   type: 'flex',
   altText: '登記業務諮詢 (請選擇)',
@@ -113,13 +30,62 @@ module.exports.registrationMenu1 = (BASE_URL) => ({
     type: 'carousel',
     contents: [
       bubbleButton('謄本', '謄本申請', '#1565C0'),
-      bubbleButton('登記規費', '登記規費', '#1565C0'),
-      bubbleButton('公告', '公告', '#1565C0'),
-      bubbleButton('辦理情形', '登記案件辦理情形', '#1565C0'),
-      bubbleButton('跨所', '跨所登記', '#1565C0')
+      bubbleButton('登記規費', '登記規費', '#1565C0')
     ]
   }
 });
+
+// 動態產生主選單六宮格 (Grid)
+module.exports.dynamicGrid = (items, BASE_URL) => {
+  // 檢查夠不夠組合成排版，我們預期是每列3個，所以把 items 分成多列
+  const rows = [];
+  for (let i = 0; i < items.length; i += 3) {
+    const chunk = items.slice(i, i + 3);
+    const rowContents = chunk.map(item => {
+      let url = item.thumbnail || '';
+      if (url && !url.startsWith('http')) url = `${BASE_URL}/public/${url}`;
+      
+      // 如果沒有縮圖就用純文字按鈕頂替
+      if (!url) {
+         return {
+           type: 'button',
+           action: { type: 'message', label: String(item.label).substring(0, 20), text: item.keyword },
+           style: 'primary',
+           flex: 1
+         };
+      }
+      return {
+        type: 'image',
+        url: url,
+        size: 'full',
+        aspectMode: 'cover',
+        aspectRatio: '1:1.3',
+        action: { type: 'message', label: String(item.label).substring(0, 20), text: item.keyword },
+        flex: 1
+      };
+    });
+
+    rows.push({
+      type: 'box',
+      layout: 'horizontal',
+      contents: rowContents
+    });
+  }
+
+  return {
+    type: 'flex',
+    altText: '請點擊六宮格業務選項',
+    contents: {
+      type: 'bubble',
+      body: {
+        type: 'box',
+        layout: 'vertical',
+        paddingAll: '0px',
+        contents: rows
+      }
+    }
+  };
+};
 
 // 動態產生子選單的通用 Carousel
 module.exports.dynamicCarousel = (items, BASE_URL) => {

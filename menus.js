@@ -8,7 +8,7 @@ module.exports.getReply = function(code) {
     'NKW': [
       { type: 'text', text: '您好！\n有任何地政相關的問題歡迎輸入以下數字取得更多相關資訊，或撥打本所電話03-5903588，將有人員進一步協助您！\n【 1 】－上班時間\n【 2 】－聯絡電話\n【 3 】－地所住址\n【 4 】－官方網站\n【 5 】－粉絲專頁\n【 6 】－其他問題\n快邀請親朋好友一起加入官方LINE，將會不定時收到最新活動消息唷！' },
       { type: 'text', text: '新湖地政官方帳號提供線上諮詢服務\n點選下方圖示可進行簡易的地政諮詢~\n若您想詢問其他問題，歡迎撥打本所電話03-5903588，將由專人為您解答，謝謝您！' },
-      carousels.mainMenu(BASE_URL) 
+      carousels.dynamicGrid([{"code":"A0","label":"登記業務（入口）","keyword":"登記業務諮詢","thumbnail":"登記業務諮詢.png"},{"code":"B0","label":"測量業務（入口）","keyword":"測量業務諮詢","thumbnail":"測量業務諮詢.png"},{"code":"C0","label":"地價業務（入口）","keyword":"地價業務諮詢","thumbnail":"地價業務諮詢.png"},{"code":"D0","label":"資訊業務（入口）","keyword":"資訊業務諮詢","thumbnail":"資訊業務諮詢.png"},{"code":"E0","label":"地用業務（入口）","keyword":"地用業務諮詢","thumbnail":"地用業務諮詢.png"},{"code":"F0","label":"檔案及其他（入口）","keyword":"檔案應用其他綜合業務諮詢","thumbnail":"檔案應用其他綜合業務諮詢.png"}], BASE_URL)
     ],
     // 以下為動態生成的 6 大業務入口
     'A0': [

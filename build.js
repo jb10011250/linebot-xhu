@@ -10,8 +10,8 @@ try {
   let keywordMap = {};
   let menusMap = {};
   
-  // 分組清單：用來自動把 A1~A16 放進 A 的群組，然後我們自動產生 A0 輪播
   let groupMap = { 'A': [], 'B': [], 'C': [], 'D': [], 'E': [], 'F': [] };
+  let mainGridItems = []; // 給首頁六宮格用的
 
   function escapeText(str) {
     if (!str) return '';
@@ -43,7 +43,14 @@ try {
       keywordMap[keyword] = code;
     }
 
-    // 將子項目自動分組，準備產生 A0/B0 等主選單
+    // 收集首頁六宮格的材料
+    if (['A0', 'B0', 'C0', 'D0', 'E0', 'F0'].includes(code)) {
+      if (keyword) {
+        mainGridItems.push({ code, label, keyword, thumbnail });
+      }
+    }
+
+    // 收集子輪播圖的材料
     if (keyword) {
       if (code !== 'A0' && code.startsWith('A')) groupMap['A'].push({ code, label, keyword, thumbnail });
       if (code !== 'B0' && code.startsWith('B')) groupMap['B'].push({ code, label, keyword, thumbnail });
@@ -53,7 +60,6 @@ try {
       if (code !== 'F0' && code.startsWith('F')) groupMap['F'].push({ code, label, keyword, thumbnail });
     }
 
-    // 這些是首頁特殊頁，由底下寫死
     if (['NKW', 'NKW-1', 'NKW-2', 'NKW-3', 'A0', 'B0', 'C0', 'D0', 'E0', 'F0'].includes(code)) return;
 
     let messages = [];
@@ -67,12 +73,10 @@ try {
     }
   });
 
-  // 自動產生 A0~F0 的動態按鈕輪播程式碼
   function buildDynamicGroupCode(prefix, groupName) {
     const items = groupMap[prefix];
     if (items.length === 0) return `[ { type: 'text', text: '本區為【${groupName}】 (選項尚未建置)' } ]`;
     
-    // LINE Carousel 最多 10 個
     let chunks = [];
     for (let i = 0; i < items.length; i += 10) {
       chunks.push(items.slice(i, i + 10));
@@ -80,7 +84,6 @@ try {
     
     let result = `[\n      { type: 'text', text: '請選擇【${groupName}】項目：' },\n`;
     chunks.forEach((chunk, idx) => {
-      // 將 chunk 用 JSON 字串轉出，但遇到 \` 等可能需要 escape
       let chunkJson = JSON.stringify(chunk);
       result += `      carousels.dynamicCarousel(${chunkJson}, BASE_URL)${idx === chunks.length - 1 ? '' : ','}\n`;
     });
@@ -95,6 +98,8 @@ ${Object.entries(keywordMap).map(([k, v]) => `  '${escapeText(k)}': '${escapeTex
 `;
   fs.writeFileSync('keywords.js', keywordsContent, 'utf-8');
 
+  const mainGridJson = JSON.stringify(mainGridItems);
+
   const menusContent = `// 機器人自動轉換產生的回應對照表
 const carousels = require('./carousels');
 require('dotenv').config();
@@ -105,7 +110,7 @@ module.exports.getReply = function(code) {
     'NKW': [
       { type: 'text', text: '您好！\\n有任何地政相關的問題歡迎輸入以下數字取得更多相關資訊，或撥打本所電話03-5903588，將有人員進一步協助您！\\n【 1 】－上班時間\\n【 2 】－聯絡電話\\n【 3 】－地所住址\\n【 4 】－官方網站\\n【 5 】－粉絲專頁\\n【 6 】－其他問題\\n快邀請親朋好友一起加入官方LINE，將會不定時收到最新活動消息唷！' },
       { type: 'text', text: '新湖地政官方帳號提供線上諮詢服務\\n點選下方圖示可進行簡易的地政諮詢~\\n若您想詢問其他問題，歡迎撥打本所電話03-5903588，將由專人為您解答，謝謝您！' },
-      carousels.mainMenu(BASE_URL) 
+      carousels.dynamicGrid(${mainGridJson}, BASE_URL)
     ],
     // 以下為動態生成的 6 大業務入口
     'A0': ${buildDynamicGroupCode('A', '登記業務諮詢')},
@@ -124,7 +129,7 @@ ${Object.values(menusMap).join(',\n')}
 `;
   fs.writeFileSync('menus.js', menusContent, 'utf-8');
 
-  console.log("✅ 升級版轉換成功！已自動分組子選單！");
+  console.log("✅ 三點零終極轉換成功！已經完全跟 Excel 脫鉤硬寫法，現在首頁也會跟著您的 Excel 動態變化！");
 
 } catch (err) {
   console.error("❌ 轉換失敗：", err);
