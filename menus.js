@@ -8,21 +8,21 @@ module.exports.getReply = function(code) {
     'NKW': [
       { type: 'text', text: '您好！\n有任何地政相關的問題歡迎輸入以下數字取得更多相關資訊，或撥打本所電話03-5903588，將有人員進一步協助您！\n【 1 】－上班時間\n【 2 】－聯絡電話\n【 3 】－地所住址\n【 4 】－官方網站\n【 5 】－粉絲專頁\n【 6 】－其他問題\n快邀請親朋好友一起加入官方LINE，將會不定時收到最新活動消息唷！' },
       { type: 'text', text: '新湖地政官方帳號提供線上諮詢服務\n點選下方圖示可進行簡易的地政諮詢~\n若您想詢問其他問題，歡迎撥打本所電話03-5903588，將由專人為您解答，謝謝您！' },
-      carousels.dynamicGrid([{"code":"A0","label":"登記業務（入口）","keyword":"登記業務諮詢","thumbnail":"登記業務諮詢.png?v=1776834565800"},{"code":"B0","label":"測量業務（入口）","keyword":"測量業務諮詢","thumbnail":"測量業務諮詢.png?v=1776834565800"},{"code":"C0","label":"地價業務（入口）","keyword":"地價業務諮詢","thumbnail":"地價業務諮詢.png?v=1776834565800"},{"code":"D0","label":"資訊業務（入口）","keyword":"資訊業務諮詢","thumbnail":"資訊業務諮詢.png?v=1776834565800"},{"code":"E0","label":"地用業務（入口）","keyword":"地用業務諮詢","thumbnail":"地用業務諮詢.png?v=1776834565800"},{"code":"F0","label":"檔案及其他（入口）","keyword":"檔案應用其他綜合業務諮詢","thumbnail":"檔案應用其他綜合業務諮詢.png?v=1776834565800"}], BASE_URL)
+      carousels.dynamicGrid([{"code":"A0","label":"登記業務（入口）","keyword":"登記業務諮詢","thumbnail":"登記業務諮詢.png?v=1776835361389"},{"code":"B0","label":"測量業務（入口）","keyword":"測量業務諮詢","thumbnail":"測量業務諮詢.png?v=1776835361389"},{"code":"C0","label":"地價業務（入口）","keyword":"地價業務諮詢","thumbnail":"地價業務諮詢.png?v=1776835361389"},{"code":"D0","label":"資訊業務（入口）","keyword":"資訊業務諮詢","thumbnail":"資訊業務諮詢.png?v=1776835361389"},{"code":"E0","label":"地用業務（入口）","keyword":"地用業務諮詢","thumbnail":"地用業務諮詢.png?v=1776835361389"},{"code":"F0","label":"檔案及其他（入口）","keyword":"檔案應用其他綜合業務諮詢","thumbnail":"檔案應用其他綜合業務諮詢.png?v=1776835361389"}], BASE_URL)
     ],
     // 以下為動態生成的 6 大業務入口
     'A0': [
       { type: 'text', text: '請選擇【登記業務諮詢】項目：' },
-      carousels.dynamicCarousel([{"code":"A1","label":"如何申請地籍謄本","keyword":"謄本申請","thumbnail":"登記底圖.png?v=1776834565800"},{"code":"A2","label":"登記費、書狀費如何計算","keyword":"登記規費","thumbnail":"登記底圖.png?v=1776834565800"},{"code":"A3","label":"如何查詢登記案件公告","keyword":"公告","thumbnail":"登記底圖.png?v=1776834565800"},{"code":"A4","label":"如何查詢登記案件辦理情形","keyword":"登記案件辦理情形","thumbnail":"登記底圖.png?v=1776834565800"},{"code":"A5","label":"哪些登記案件可以跨所申請","keyword":"跨所登記","thumbnail":"登記底圖.png?v=1776834565800"},{"code":"A6","label":"地政便民工作站有哪些服務","keyword":"便民工作站","thumbnail":"登記底圖.png?v=1776834565800"},{"code":"A7","label":"如何申請住址變更","keyword":"住址變更","thumbnail":"登記底圖.png?v=1776834565800"},{"code":"A8","label":"如何查詢名下不動產資料","keyword":"歸戶查詢","thumbnail":"登記底圖.png?v=1776834565800"},{"code":"A9","label":"地政相關表單下載","keyword":"書表下載","thumbnail":"登記底圖.png?v=1776834565800"},{"code":"A10","label":"常見登記案件申辦須知","keyword":"案件辦理須知","thumbnail":"登記底圖.png?v=1776834565800"}], BASE_URL),
-      carousels.dynamicCarousel([{"code":"A11","label":"如何辦理繼承","keyword":"繼承","thumbnail":"登記底圖.png?v=1776834565800"},{"code":"A12","label":"如何辦理地籍異動即時通","keyword":"地籍異動即時通","thumbnail":"登記底圖.png?v=1776834565800"},{"code":"A13","label":"如何辦理住址隱匿","keyword":"住址隱匿","thumbnail":"登記底圖.png?v=1776834565800"},{"code":"A14","label":"如何線上辦理土地登記","keyword":"數位櫃台","thumbnail":"登記底圖.png?v=1776834565800"},{"code":"A15","label":"如何查詢合法地政士","keyword":"地政士","thumbnail":"登記底圖.png?v=1776834565800"},{"code":"A16","label":"外籍及大陸地區人士專區","keyword":"外國人","thumbnail":"登記底圖.png?v=1776834565800"}], BASE_URL)
+      carousels.dynamicCarousel([{"code":"A1","label":"如何申請地籍謄本","keyword":"謄本申請","thumbnail":"登記底圖.png?v=1776835361389"},{"code":"A2","label":"登記費、書狀費如何計算","keyword":"登記規費","thumbnail":"登記底圖.png?v=1776835361389"},{"code":"A3","label":"如何查詢登記案件公告","keyword":"公告","thumbnail":"登記底圖.png?v=1776835361389"},{"code":"A4","label":"如何查詢登記案件辦理情形","keyword":"登記案件辦理情形","thumbnail":"登記底圖.png?v=1776835361389"},{"code":"A5","label":"哪些登記案件可以跨所申請","keyword":"跨所登記","thumbnail":"登記底圖.png?v=1776835361389"},{"code":"A6","label":"地政便民工作站有哪些服務","keyword":"便民工作站","thumbnail":"登記底圖.png?v=1776835361389"},{"code":"A7","label":"如何申請住址變更","keyword":"住址變更","thumbnail":"登記底圖.png?v=1776835361389"},{"code":"A8","label":"如何查詢名下不動產資料","keyword":"歸戶查詢","thumbnail":"登記底圖.png?v=1776835361389"},{"code":"A9","label":"地政相關表單下載","keyword":"書表下載","thumbnail":"登記底圖.png?v=1776835361389"},{"code":"A10","label":"常見登記案件申辦須知","keyword":"案件辦理須知","thumbnail":"登記底圖.png?v=1776835361389"}], BASE_URL),
+      carousels.dynamicCarousel([{"code":"A11","label":"如何辦理繼承","keyword":"繼承","thumbnail":"登記底圖.png?v=1776835361389"},{"code":"A12","label":"如何辦理地籍異動即時通","keyword":"地籍異動即時通","thumbnail":"登記底圖.png?v=1776835361389"},{"code":"A13","label":"如何辦理住址隱匿","keyword":"住址隱匿","thumbnail":"登記底圖.png?v=1776835361389"},{"code":"A14","label":"如何線上辦理土地登記","keyword":"數位櫃台","thumbnail":"登記底圖.png?v=1776835361389"},{"code":"A15","label":"如何查詢合法地政士","keyword":"地政士","thumbnail":"登記底圖.png?v=1776835361389"},{"code":"A16","label":"外籍及大陸地區人士專區","keyword":"外國人","thumbnail":"登記底圖.png?v=1776835361389"}], BASE_URL)
     ],
     'B0': [
       { type: 'text', text: '請選擇【測量業務諮詢】項目：' },
-      carousels.dynamicCarousel([{"code":"B1","label":"鑑界規費怎麼算","keyword":"鑑界規費試算","thumbnail":"測量底圖.png?v=1776834565800"},{"code":"B2","label":"辦理土地複丈需要購買界標嗎","keyword":"界標","thumbnail":"測量底圖.png?v=1776834565800"},{"code":"B3","label":"法院會同地點在哪／如何繳費","keyword":"法院案件查詢","thumbnail":"測量底圖.png?v=1776834565800"},{"code":"B4","label":"如何查詢測量案件辦理情形","keyword":"測量案件辦理情形","thumbnail":"測量底圖.png?v=1776834565800"},{"code":"B5","label":"地政士如何繪製測量成果圖","keyword":"單機版建物測量繪圖軟體","thumbnail":"測量底圖.png?v=1776834565800"},{"code":"B6","label":"如何簡化申請建物第一次測量","keyword":"簡化建物第一次測量","thumbnail":"測量底圖.png?v=1776834565800"},{"code":"B7","label":"何時需要檢附建物地籍測繪資料","keyword":"建物地籍測繪資料","thumbnail":"測量底圖.png?v=1776834565800"},{"code":"B8","label":"辦理土地複丈如何收費","keyword":"測量規費","thumbnail":"測量底圖.png?v=1776834565800"}], BASE_URL)
+      carousels.dynamicCarousel([{"code":"B1","label":"鑑界規費怎麼算","keyword":"鑑界規費試算","thumbnail":"測量底圖.png?v=1776835361389"},{"code":"B2","label":"辦理土地複丈需要購買界標嗎","keyword":"界標","thumbnail":"測量底圖.png?v=1776835361389"},{"code":"B3","label":"法院會同地點在哪／如何繳費","keyword":"法院案件查詢","thumbnail":"測量底圖.png?v=1776835361389"},{"code":"B4","label":"如何查詢測量案件辦理情形","keyword":"測量案件辦理情形","thumbnail":"測量底圖.png?v=1776835361389"},{"code":"B5","label":"地政士如何繪製測量成果圖","keyword":"單機版建物測量繪圖軟體","thumbnail":"測量底圖.png?v=1776835361389"},{"code":"B6","label":"如何簡化申請建物第一次測量","keyword":"簡化建物第一次測量","thumbnail":"測量底圖.png?v=1776835361389"},{"code":"B7","label":"何時需要檢附建物地籍測繪資料","keyword":"建物地籍測繪資料","thumbnail":"測量底圖.png?v=1776835361389"},{"code":"B8","label":"辦理土地複丈如何收費","keyword":"測量規費","thumbnail":"測量底圖.png?v=1776835361389"}], BASE_URL)
     ],
     'C0': [
       { type: 'text', text: '請選擇【地價業務諮詢】項目：' },
-      carousels.dynamicCarousel([{"code":"C1","label":"如何查詢公告土地現值","keyword":"公告土地現值","thumbnail":"地價底圖.png?v=1776834565800"},{"code":"C2","label":"如何試算土地增值稅","keyword":"增值稅試算","thumbnail":"地價底圖.png?v=1776834565800"},{"code":"C3","label":"更多實價登錄相關資訊","keyword":"實價登錄","thumbnail":"地價底圖.png?v=1776834565800"},{"code":"C4","label":"如何申報買賣實價登錄","keyword":"買賣實價登錄","thumbnail":"地價底圖.png?v=1776834565800"},{"code":"C5","label":"如何申報租賃及預售屋實價登錄","keyword":"預售屋實價登錄","thumbnail":"地價底圖.png?v=1776834565800"},{"code":"C6","label":"如何查詢實價登錄資訊","keyword":"實價登錄查詢網站","thumbnail":"地價底圖.png?v=1776834565800"},{"code":"C7","label":"實價登錄的申報期限","keyword":"申報期限","thumbnail":"地價底圖.png?v=1776834565800"},{"code":"C8","label":"哪些情形需要申報實價登錄","keyword":"實價登錄申報種類","thumbnail":"地價底圖.png?v=1776834565800"}], BASE_URL)
+      carousels.dynamicCarousel([{"code":"C1","label":"如何查詢公告土地現值","keyword":"公告土地現值","thumbnail":"地價底圖.png?v=1776835361389"},{"code":"C2","label":"如何試算土地增值稅","keyword":"增值稅試算","thumbnail":"地價底圖.png?v=1776835361389"},{"code":"C3","label":"更多實價登錄相關資訊","keyword":"實價登錄","thumbnail":"地價底圖.png?v=1776835361389"},{"code":"C4","label":"如何申報買賣實價登錄","keyword":"買賣實價登錄","thumbnail":"地價底圖.png?v=1776835361389"},{"code":"C5","label":"如何申報租賃及預售屋實價登錄","keyword":"預售屋實價登錄","thumbnail":"地價底圖.png?v=1776835361389"},{"code":"C6","label":"如何查詢實價登錄資訊","keyword":"實價登錄查詢網站","thumbnail":"地價底圖.png?v=1776835361389"},{"code":"C7","label":"實價登錄的申報期限","keyword":"申報期限","thumbnail":"地價底圖.png?v=1776835361389"},{"code":"C8","label":"哪些情形需要申報實價登錄","keyword":"實價登錄申報種類","thumbnail":"地價底圖.png?v=1776835361389"}], BASE_URL)
     ],
     'D0': [
       { type: 'text', text: '請選擇【資訊業務諮詢】項目：' },
@@ -30,11 +30,11 @@ module.exports.getReply = function(code) {
     ],
     'E0': [
       { type: 'text', text: '請選擇【地用業務諮詢】項目：' },
-      carousels.dynamicCarousel([{"code":"E1","label":"辦理更正編定須準備什麼","keyword":"更正編定","thumbnail":"地用底圖.png?v=1776834565800"},{"code":"E2","label":"辦理變更編定須準備什麼","keyword":"變更編定","thumbnail":"地用底圖.png?v=1776834565800"},{"code":"E3","label":"如何查詢土地參考資訊檔","keyword":"土地參考資訊檔","thumbnail":"地用底圖.png?v=1776834565800"},{"code":"E4","label":"如何查詢國土計畫法相關資料","keyword":"國土計劃","thumbnail":"地用底圖.png?v=1776834565800"},{"code":"E5","label":"農地違規使用有什麼罰則","keyword":"違規使用","thumbnail":"地用底圖.png?v=1776834565800"},{"code":"E6","label":"如何查詢土地容許使用項目","keyword":"容許使用","thumbnail":"地用底圖.png?v=1776834565800"},{"code":"E7","label":"更多土地使用相關資訊","keyword":"地用","thumbnail":"地用底圖.png?v=1776834565800"}], BASE_URL)
+      carousels.dynamicCarousel([{"code":"E1","label":"辦理更正編定須準備什麼","keyword":"更正編定","thumbnail":"地用底圖.png?v=1776835361389"},{"code":"E2","label":"辦理變更編定須準備什麼","keyword":"變更編定","thumbnail":"地用底圖.png?v=1776835361389"},{"code":"E3","label":"如何查詢土地參考資訊檔","keyword":"土地參考資訊檔","thumbnail":"地用底圖.png?v=1776835361389"},{"code":"E4","label":"如何查詢國土計畫法相關資料","keyword":"國土計劃","thumbnail":"地用底圖.png?v=1776835361389"},{"code":"E5","label":"農地違規使用有什麼罰則","keyword":"違規使用","thumbnail":"地用底圖.png?v=1776835361389"},{"code":"E6","label":"如何查詢土地容許使用項目","keyword":"容許使用","thumbnail":"地用底圖.png?v=1776835361389"},{"code":"E7","label":"更多土地使用相關資訊","keyword":"地用","thumbnail":"地用底圖.png?v=1776835361389"}], BASE_URL)
     ],
     'F0': [
       { type: 'text', text: '請選擇【檔案及綜合業務】項目：' },
-      carousels.dynamicCarousel([{"code":"F1","label":"申請檔案應用需要準備什麼","keyword":"檔案應用","thumbnail":"檔案應用底圖.png?v=1776834565800"},{"code":"F2","label":"申請擔任志工需要準備什麼","keyword":"志工招募","thumbnail":"檔案應用底圖.png?v=1776834565800"},{"code":"F3","label":"申請寒暑假青年志工需要準備什麼","keyword":"青年志工","thumbnail":"檔案應用底圖.png?v=1776834565800"}], BASE_URL)
+      carousels.dynamicCarousel([{"code":"F1","label":"申請檔案應用需要準備什麼","keyword":"檔案應用","thumbnail":"檔案應用底圖.png?v=1776835361389"},{"code":"F2","label":"申請擔任志工需要準備什麼","keyword":"志工招募","thumbnail":"檔案應用底圖.png?v=1776835361389"},{"code":"F3","label":"申請寒暑假青年志工需要準備什麼","keyword":"青年志工","thumbnail":"檔案應用底圖.png?v=1776835361389"}], BASE_URL)
     ],
 
     // --- Excel 動態擷取的子業務資料 ---
@@ -106,7 +106,7 @@ https://land.tycg.gov.tw/News_Content.aspx?n=4104&s=1467909
 https://land.tycg.gov.tw/News_Content.aspx?n=4103&s=553588
 
 如您尚有其他問題，可撥打本所電話03-4917647，將有專人進一步協助您，謝謝您！` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/謄本申請.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/謄本申請.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/謄本申請.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/謄本申請.jpg?v=1776835361389` }
     ],
     'A2': [
       { type: 'text', text: `阿吸，您好！
@@ -138,7 +138,7 @@ https://www.land.tycg.gov.tw/chaspx/SQry3.aspx/22
 https://land.tycg.gov.tw/News_Content.aspx?n=4104&s=1467876
 
 如您尚有其他問題，可撥打本所電話03-4917647，將有專人進一步協助您，謝謝您！` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/跨所登記.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/跨所登記.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/跨所登記.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/跨所登記.jpg?v=1776835361389` }
     ],
     'A6': [
       { type: 'text', text: `阿吸，您好！
@@ -154,7 +154,7 @@ https://maps.app.goo.gl/7bSR8AmJqfMRpubF6
 
 
 如您尚有其他問題，可撥打本所電話03-4917647，將有專人進一步協助您，謝謝您！` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/便民工作站.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/便民工作站.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/便民工作站.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/便民工作站.jpg?v=1776835361389` }
     ],
     'A7': [
       { type: 'text', text: `阿吸，您好！
@@ -212,7 +212,7 @@ https://www.asuswebstorage.com/navigate/a/#/s/7C52A6CD72D445FC8C3B5006721D00F06
 https://www.asuswebstorage.com/navigate/a/#/s/A24DBF7C50704DE393B54529609185D26
 
 如查詢不到您想要的資料，可洽本所 03-4917647 協助您~` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR一般繼承空白表單申請書,登記清冊,繼承系統表,權狀切結書.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/QR一般繼承空白表單申請書,登記清冊,繼承系統表,權狀切結書.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR一般繼承空白表單申請書,登記清冊,繼承系統表,權狀切結書.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/QR一般繼承空白表單申請書,登記清冊,繼承系統表,權狀切結書.jpg?v=1776835361389` }
     ],
     'A12': [
       { type: 'text', text: `阿吸您好~ 
@@ -229,8 +229,8 @@ https://www.asuswebstorage.com/navigate/a/#/s/3F903D2B4724453CAA11CC0613E3983D6
 ■ 地籍異動即時通申請須知:
 https://land.tycg.gov.tw/cp.aspx?n=3975
 如查詢不到您想要的資料，可洽本所 03-4917647 協助您~` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR地籍異動即時通申請書.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/QR地籍異動即時通申請書.jpg?v=1776834565800` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/地籍異動即時通文宣.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/地籍異動即時通文宣.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR地籍異動即時通申請書.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/QR地籍異動即時通申請書.jpg?v=1776835361389` },
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/地籍異動即時通文宣.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/地籍異動即時通文宣.jpg?v=1776835361389` }
     ],
     'A13': [
       { type: 'text', text: `阿吸您好~
@@ -246,7 +246,7 @@ https://land.tycg.gov.tw/cp.aspx?n=4010
 https://www.asuswebstorage.com/navigate/a/#/s/74FDF4AB29D64E07B8BBE42A3F4E75B26
 
 如查詢不到您想要的資料，可洽本所 03-4917647 協助您~` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR住址隱匿即時通申請書.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/QR住址隱匿即時通申請書.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR住址隱匿即時通申請書.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/QR住址隱匿即時通申請書.jpg?v=1776835361389` }
     ],
     'A14': [
       { type: 'text', text: `阿吸，您好！
@@ -256,7 +256,7 @@ https://www.asuswebstorage.com/navigate/a/#/s/74FDF4AB29D64E07B8BBE42A3F4E75B26
 https://dcland.moi.gov.tw/
 
 如您尚有其他問題，可撥打本所電話03-4917647，將有專人進一步協助您，謝謝您！` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/數位櫃台登記申請線上辦jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/數位櫃台登記申請線上辦jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/數位櫃台登記申請線上辦jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/數位櫃台登記申請線上辦jpg?v=1776835361389` }
     ],
     'A15': [
       { type: 'text', text: `阿吸，您好！
@@ -266,7 +266,7 @@ https://resim.moi.gov.tw/Home/AgentIndex
 貼心提醒:委託合法地政士，確保不動產交易安全，保障民眾自身之財產權益！
 
 如您尚有其他問題，可撥打本所電話03-4917647，將有專人進一步協助您，謝謝您！` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/地政士.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/地政士.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/地政士.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/地政士.jpg?v=1776835361389` }
     ],
     'A16': [
       { type: 'text', text: `阿吸，您好！
@@ -410,7 +410,7 @@ https://www.asuswebstorage.com/navigate/a/#/s/3F903D2B4724453CAA11CC0613E3983D6
 ■ 地籍異動即時通申請須知:
 https://land.tycg.gov.tw/cp.aspx?n=3975
 如查詢不到您想要的資料，可洽本所 03-4917647 協助您~` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR地籍異動即時通申請書.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/QR地籍異動即時通申請書.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR地籍異動即時通申請書.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/QR地籍異動即時通申請書.jpg?v=1776835361389` }
     ],
     'REG-911': [
       { type: 'text', text: `阿吸您好~
@@ -426,7 +426,7 @@ https://land.tycg.gov.tw/cp.aspx?n=4010
 https://www.asuswebstorage.com/navigate/a/#/s/74FDF4AB29D64E07B8BBE42A3F4E75B26
 
 如查詢不到您想要的資料，可洽本所 03-4917647 協助您~` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR住址隱匿即時通申請書.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/QR住址隱匿即時通申請書.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR住址隱匿即時通申請書.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/QR住址隱匿即時通申請書.jpg?v=1776835361389` }
     ],
     'REG-912': [
       { type: 'text', text: `阿吸，您好！
@@ -446,8 +446,8 @@ https://www.asuswebstorage.com/navigate/a/#/s/9578C16467DC4329B9BF12B95B74768F6
 https://www.asuswebstorage.com/navigate/a/#/s/981FD14C2794402F904EA435F6D007DC6
 
 如查詢不到您想要的資料，可洽本所 03-4917647 分機413燕先生協助您~` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR檔案應用申請書.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/QR檔案應用申請書.jpg?v=1776834565800` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR檔案應用代理人委任書?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/QR檔案應用代理人委任書?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR檔案應用申請書.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/QR檔案應用申請書.jpg?v=1776835361389` },
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR檔案應用代理人委任書?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/QR檔案應用代理人委任書?v=1776835361389` }
     ],
     'REG-913': [
       { type: 'text', text: `阿吸，您好！
@@ -466,7 +466,7 @@ https://www.asuswebstorage.com/navigate/a/#/s/94EEE13CF36646168905E84DC1E90F1B6
 https://www.asuswebstorage.com/navigate/a/#/s/C0E5EAEA43574243AFAA2994D367E0656
 
 如您尚有其他問題，可撥打本所電話03-4917647分機414或419，將有專人進一步協助您，謝謝您！` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR更正編定申請書.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/QR更正編定申請書.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR更正編定申請書.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/QR更正編定申請書.jpg?v=1776835361389` }
     ],
     'REG-914': [
       { type: 'text', text: `阿吸您好~ 本所LINE+ibon卡厲害~ 為您搜尋到的文件如下： 
@@ -478,7 +478,7 @@ https://www.asuswebstorage.com/navigate/a/#/s/C0E5EAEA43574243AFAA2994D367E0656
 https://www.asuswebstorage.com/navigate/a/#/s/B246250DBB9F4FC7BDBBEDB79C3381196
 
 如查詢不到您想要的資料，可洽本所 03-4917647 分機503呂先生協助您~` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR土地基本資料庫電子資料申請表.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/QR土地基本資料庫電子資料申請表.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/QR土地基本資料庫電子資料申請表.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/QR土地基本資料庫電子資料申請表.jpg?v=1776835361389` }
     ],
     'B1': [
       { type: 'text', text: `阿吸，您好！
@@ -492,12 +492,12 @@ https://www.zhongli-land.tycg.gov.tw/News_Content.aspx?n=14066&s=1090601
 (three)視需要可下載列印PDF檔，並附於申請書內，以利計收規費，減少規費退補費程序。
 
 (Cony hug)有關其他測量規費計費方法請輸入關鍵字「測量費」以獲取更多資訊!!` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/複丈試算網站介紹.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/複丈試算網站介紹.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/複丈試算網站介紹.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/複丈試算網站介紹.jpg?v=1776835361389` }
     ],
     'B2': [
       { type: 'text', text: `阿吸，您好！
 112年 5月 1日以後申辦土地複丈案件，將由地政事務所提供制式界標予申請人使用，申請人「不用」再自行準備制式界標；但應注意地政事務所僅提供界標予申請人使用，還是要由申請人自行埋設並妥為維護管理，因此現場記得幫我們準備鐵鎚或方便埋設界標的工具，以利複丈作業進行。` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/免自備制式界標文宣.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/免自備制式界標文宣.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/免自備制式界標文宣.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/免自備制式界標文宣.jpg?v=1776835361389` }
     ],
     'B3': [
       { type: 'text', text: `阿吸，您好！
@@ -537,7 +537,7 @@ https://www.land.tycg.gov.tw/chaspx/SQry3.aspx/22
 https://easymap.land.moi.gov.tw/K01/
 
 (Cony hug)提醒於繪製完成後記得匯出中央政府鎖定共通格式電子檔（*zjb)，連同案件送交地政事務所辦理，可省下每建號600元之數值化作業喔!!` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/共通式電子檔建物向量圖.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/共通式電子檔建物向量圖.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/共通式電子檔建物向量圖.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/共通式電子檔建物向量圖.jpg?v=1776835361389` }
     ],
     'B6': [
       { type: 'text', text: `阿吸，您好！
@@ -566,7 +566,7 @@ https://easymap.land.moi.gov.tw/K01/
 
 (typing)有關建物地籍測繪資料應涵蓋內容應包含「測繪基本資訊」、「測點圖例圖說」、「距離角度數據」、「簽證印鑑或執業圖記」等4項元素，詳情可洽本所官網了解(magnifying glass)：
 https://www.zhongli-land.tycg.gov.tw/News_Content.aspx?n=14066&s=1090602` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/建物地籍測繪資料.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/建物地籍測繪資料.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/建物地籍測繪資料.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/建物地籍測繪資料.jpg?v=1776835361389` }
     ],
     'B8': [
       { type: 'text', text: `阿吸，您好！
@@ -579,7 +579,7 @@ https://www.land.moi.gov.tw/lawfile/files/20230116151455-u1.pdf
 https://www.land.moi.gov.tw/lawfile/files/20230116151536-u1.pdf
 
 如您尚有其他問題，可撥打本所電話03-4917647分機245、202，將有專人進一步協助您，謝謝您！` },
-      { type: 'image', originalContentUrl: `${BASE_URL}/public/測量收費標準.jpg?v=1776834565800`, previewImageUrl: `${BASE_URL}/public/測量收費標準.jpg?v=1776834565800` }
+      { type: 'image', originalContentUrl: `${BASE_URL}/public/測量收費標準.jpg?v=1776835361389`, previewImageUrl: `${BASE_URL}/public/測量收費標準.jpg?v=1776835361389` }
     ],
     'C3': [
       { type: 'text', text: `請輸入代號取得更多資訊：

@@ -1,7 +1,7 @@
 // 六宮格與各種圖片輪播（Carousel）設定檔
 // 用於產生 LINE Flex Message 格式的輪播選單
 
-// 通用按鈕泡泡 (Bubble) 產生器 - 用於尚無圖片時的版面
+// 通用按鈕泡泡 (Bubble) 產生器
 function bubbleButton(label, keyword, color) {
   return {
     type: 'bubble',
@@ -22,30 +22,18 @@ function bubbleButton(label, keyword, color) {
   };
 }
 
-// A0 - 登記業務諮詢 第一組輪播 (舊的靜態範本，若有需要可保留)
-module.exports.registrationMenu1 = (BASE_URL) => ({
-  type: 'flex',
-  altText: '登記業務諮詢 (請選擇)',
-  contents: {
-    type: 'carousel',
-    contents: [
-      bubbleButton('謄本', '謄本申請', '#1565C0'),
-      bubbleButton('登記規費', '登記規費', '#1565C0')
-    ]
-  }
-});
-
 // 動態產生主選單六宮格 (Grid)
 module.exports.dynamicGrid = (items, BASE_URL) => {
-  // 檢查夠不夠組合成排版，我們預期是每列3個，所以把 items 分成多列
   const rows = [];
   for (let i = 0; i < items.length; i += 3) {
     const chunk = items.slice(i, i + 3);
     const rowContents = chunk.map(item => {
       let url = item.thumbnail || '';
-      if (url && !url.startsWith('http')) url = `${BASE_URL}/public/${url}`;
+      if (url && !url.startsWith('http')) {
+          // 處理可能已經有 version stamp 的情況
+          url = url.includes('?') ? `${BASE_URL}/public/${url}` : `${BASE_URL}/public/${url}`;
+      }
       
-      // 如果沒有縮圖就用純文字按鈕頂替
       if (!url) {
          return {
            type: 'button',
@@ -59,7 +47,7 @@ module.exports.dynamicGrid = (items, BASE_URL) => {
         url: url,
         size: 'full',
         aspectMode: 'cover',
-        aspectRatio: '1:1.3',
+        aspectRatio: '1.5:1', // 使用更穩定的比例
         action: { type: 'message', label: String(item.label).substring(0, 20), text: item.keyword },
         flex: 1
       };
@@ -77,7 +65,7 @@ module.exports.dynamicGrid = (items, BASE_URL) => {
     altText: '請點擊六宮格業務選項',
     contents: {
       type: 'bubble',
-      size: 'giga', // 放大成最大尺寸版面
+      size: 'mega', // 使用標準尺寸最穩定
       body: {
         type: 'box',
         layout: 'vertical',
@@ -96,14 +84,13 @@ module.exports.dynamicCarousel = (items, BASE_URL) => {
     contents: {
       type: 'carousel',
       contents: items.map(item => {
-        // 如果有填寫縮圖，啟用「底圖 + 疊加文字」的精美卡片模式
         if (item.thumbnail) {
           let url = item.thumbnail;
           if (!url.startsWith('http')) url = `${BASE_URL}/public/${url}`;
             
           return {
             type: 'bubble',
-            size: 'micro', // 縮小卡片寬度，讓一次能看到更多張
+            size: 'mega', // 輪播建議使用 mega
             body: {
               type: 'box',
               layout: 'vertical',
@@ -112,28 +99,28 @@ module.exports.dynamicCarousel = (items, BASE_URL) => {
               contents: [
                 {
                   type: 'image',
+                  url: url,
                   size: 'full',
                   aspectMode: 'cover',
-                  aspectRatio: '3:2' // 寬比高 = 3:2，精準裁切下半部
+                  aspectRatio: '3:2'
                 },
-                // 全版置中透明覆蓋層
                 {
                   type: 'box',
                   layout: 'vertical',
                   position: 'absolute',
                   width: '100%',
                   height: '100%',
-                  justifyContent: 'center', // 垂直居中
-                  alignItems: 'center', // 內容水平置中
+                  justifyContent: 'center',
+                  alignItems: 'center',
                   backgroundColor: '#00000000',
-                  paddingAll: 'sm', 
+                  paddingAll: 'sm',
                   contents: [
                     {
                       type: 'text',
                       text: item.label,
                       color: '#1A365D',
                       align: 'center',
-                      size: 'xxl', // 採用極大字體
+                      size: 'xl', // 使用 xl 也很清晰且更安全
                       weight: 'bold',
                       wrap: true
                     }
@@ -143,10 +130,9 @@ module.exports.dynamicCarousel = (items, BASE_URL) => {
             }
           };
         } else {
-          // 沒有縮圖時，維持原生乾淨的藍色按鈕
           return {
             type: 'bubble',
-            size: 'micro',
+            size: 'mega',
             body: {
               type: 'box',
               layout: 'vertical',
@@ -163,4 +149,10 @@ module.exports.dynamicCarousel = (items, BASE_URL) => {
       })
     }
   };
+};
+
+// 為了相容性暫時保留原本可能被呼叫的函數名稱
+module.exports.mainMenu = (BASE_URL) => {
+    // 如果還有地方呼叫它，直接引導到動態六宮格
+    return { type: 'text', text: '系統更新中，請重新輸入關鍵字' };
 };
