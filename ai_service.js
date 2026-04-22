@@ -76,15 +76,16 @@ ${kbText}
 
   for (const modelName of MODELS) {
     try {
-      const model = genAI.getGenerativeModel({ 
-        model: modelName,
-        // 強制關閉「思考模型」的思考過程輸出，只回傳最終答案
-        generationConfig: {
-          thinkingConfig: {
-            thinkingBudget: 0  // 0 = 完全停用思考過程，避免輸出一大串英文草稿
-          }
-        }
-      });
+      let modelConfig = { model: modelName };
+      
+      // 只有 Gemini 實驗模型才支援 thinkingConfig，Gemma 系列會報 400 錯誤
+      if (modelName.includes('gemini') && modelName.includes('preview')) {
+        modelConfig.generationConfig = {
+          thinkingConfig: { thinkingBudget: 0 }
+        };
+      }
+      
+      const model = genAI.getGenerativeModel(modelConfig);
       
       const prompt = `${systemPrompt}\n\n用戶提問：${userMessage}\n\n請直接回覆正式中文答案：`;
       
