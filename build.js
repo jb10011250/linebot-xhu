@@ -35,9 +35,9 @@ try {
       // 產出如 logo.v171356.png 的格式，並在這邊為中文檔名進行標準網址編碼（encodeURI）
       // 因為 LINE 傳統圖片訊息非常嚴格，不允許網址中出現未編碼的中文字或空白！
       const encodedName = encodeURI(name);
-      return `\`\${BASE_URL}/public/\${escapeText(encodedName)}.v${versionStamp}.${ext}\``;
+      return `\`\${BASE_URL}/public/${escapeText(encodedName)}.v${versionStamp}.${ext}\``;
     }
-    return `\`\${BASE_URL}/public/\${escapeText(encodeURI(p))}\``;
+    return `\`\${BASE_URL}/public/${escapeText(encodeURI(p))}\``;
   }
 
   // 處理縮圖的小助手
