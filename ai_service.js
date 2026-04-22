@@ -4,10 +4,10 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
-// 模型設定 (使用穩定且不會輸出思考過程的 1.5 世代，保有免費每日 1500 次高額度)
+// 模型設定 (使用具體版本號以修正 404 錯誤)
 const MODELS = [
-  "gemini-1.5-flash", // 主力：速度快、乾淨無草稿，額度與 Gemma 一樣高
-  "gemini-2.0-flash"  // 備援：Google 最新強大語言模型
+  "gemini-1.5-flash-latest", // 主力：自動指向最新穩定版
+  "gemini-1.5-flash-002"     // 備援：具體指定版本
 ];
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || "");
