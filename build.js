@@ -24,11 +24,18 @@ try {
   function buildImageUrlSnippet(fileName) {
     let p = fileName.trim();
     if (p.startsWith('http://') || p.startsWith('https://')) {
-      // 避免破壞外部已經帶參數的網址
       return `\`${escapeText(p)}\``;
     }
-    // 透過 URL 參數增加快取破壞
-    return `\`\${BASE_URL}/public/${escapeText(p)}?v=${versionStamp}\``;
+    
+    // 取得副檔名與主檔名
+    const parts = p.split('.');
+    if (parts.length > 1) {
+      const ext = parts.pop();
+      const name = parts.join('.');
+      // 產出如 logo.v171356.png 的格式
+      return `\`\${BASE_URL}/public/${escapeText(name)}.v${versionStamp}.${ext}\``;
+    }
+    return `\`\${BASE_URL}/public/${escapeText(p)}\``;
   }
 
   // 處理縮圖的小助手
@@ -36,7 +43,14 @@ try {
     let p = String(fileName || '').trim();
     if (!p) return '';
     if (p.startsWith('http://') || p.startsWith('https://')) return p;
-    return `${p}?v=${versionStamp}`;
+    
+    const parts = p.split('.');
+    if (parts.length > 1) {
+      const ext = parts.pop();
+      const name = parts.join('.');
+      return `${name}.v${versionStamp}.${ext}`;
+    }
+    return p;
   }
 
   rows.forEach(row => {
@@ -79,8 +93,8 @@ try {
     let messages = [];
     if (w1) messages.push(`{ type: 'text', text: \`${escapeText(w1)}\` }`);
     if (w2) messages.push(`{ type: 'text', text: \`${escapeText(w2)}\` }`);
-    if (p1) messages.push(`{ type: 'image', originalContentUrl: ${buildImageUrlSnippet(p1)}, previewImageUrl: ${buildImageUrlSnippet(p1)} }`);
-    if (p2) messages.push(`{ type: 'image', originalContentUrl: ${buildImageUrlSnippet(p2)}, previewImageUrl: ${buildImageUrlSnippet(p2)} }`);
+    if (p1) messages.push(`{ type: 'image', originalContentUrl: ${buildImageUrlSnippet(p1, true)}, previewImageUrl: ${buildImageUrlSnippet(p1, true)} }`);
+    if (p2) messages.push(`{ type: 'image', originalContentUrl: ${buildImageUrlSnippet(p2, true)}, previewImageUrl: ${buildImageUrlSnippet(p2, true)} }`);
 
     if (messages.length > 0) {
       menusMap[code] = `    '${escapeText(code)}': [\n      ${messages.join(',\n      ')}\n    ]`;

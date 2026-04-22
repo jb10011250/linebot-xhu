@@ -11,8 +11,18 @@ const config = {
 
 const client = new line.Client(config);
 const app = express();
+const path = require('path');
 
-app.use('/public', express.static('public'));
+// 智慧快取解碼器：將 /public/xxx.v123.png 轉回 /public/xxx.png 讀取實體檔案
+app.use('/public', (req, res, next) => {
+  // 匹配中間帶有 .v 加上純數字的檔名格式
+  if (req.url.match(/\.v\d+\./)) {
+    req.url = req.url.replace(/\.v\d+\./, '.');
+  }
+  next();
+});
+
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
   res.send('Bot is alive. Webhook 準備就緒。');
