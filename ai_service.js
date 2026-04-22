@@ -4,11 +4,10 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
-// 模型設定 (優先使用配額最高的 Gemma，並以最新閃電版作為備援)
+// 模型設定 (使用穩定且不會輸出思考過程的 1.5 世代，保有免費每日 1500 次高額度)
 const MODELS = [
-  "gemma-4-31b-it",                // 主力：高額度 (1500次/日)，適合大量民眾使用
-  "gemini-3.1-flash-lite-preview", // 備援：高理解力實驗模型
-  "gemini-2.0-flash"               // 終極備援
+  "gemini-1.5-flash", // 主力：速度快、乾淨無草稿，額度與 Gemma 一樣高
+  "gemini-2.0-flash"  // 備援：Google 最新強大語言模型
 ];
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || "");
