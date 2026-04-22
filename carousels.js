@@ -77,6 +77,7 @@ module.exports.dynamicGrid = (items, BASE_URL) => {
     altText: '請點擊六宮格業務選項',
     contents: {
       type: 'bubble',
+      size: 'giga', // 放大成最大尺寸版面
       body: {
         type: 'box',
         layout: 'vertical',
@@ -95,39 +96,69 @@ module.exports.dynamicCarousel = (items, BASE_URL) => {
     contents: {
       type: 'carousel',
       contents: items.map(item => {
-        // 基本的底層 Bubble 結構
-        let bubble = {
-          type: 'bubble',
-          size: 'micro', // 放縮圖用小卡比較精緻
-          body: {
-            type: 'box',
-            layout: 'vertical',
-            paddingAll: 'md',
-            contents: [{
-              type: 'button',
-              action: { type: 'message', label: String(item.label).substring(0,20), text: item.keyword },
-              style: 'primary',
-              color: '#1565C0'
-            }]
-          }
-        };
-
-        // 如果填了【選單縮圖】，就掛載 Hero Image
+        // 如果有填寫縮圖，啟用「底圖 + 疊加文字」的精美卡片模式
         if (item.thumbnail) {
           let url = item.thumbnail;
           if (!url.startsWith('http')) url = `${BASE_URL}/public/${url}`;
             
-          bubble.hero = {
-            type: 'image',
-            url: url,
-            size: 'full',
-            aspectRatio: '1:1',
-            aspectMode: 'cover'
+          return {
+            type: 'bubble',
+            size: 'kilo', // 改為 kilo，因為有圖文需要更大的伸展空間
+            body: {
+              type: 'box',
+              layout: 'vertical',
+              paddingAll: '0px',
+              action: { type: 'message', label: String(item.label).substring(0,20), text: item.keyword },
+              contents: [
+                {
+                  type: 'image',
+                  url: url,
+                  size: 'full',
+                  aspectMode: 'cover',
+                  aspectRatio: '4:3' // 稍微扁一點避免佔用太多垂直版面
+                },
+                // 半透明遮罩層 + 文字
+                {
+                  type: 'box',
+                  layout: 'vertical',
+                  position: 'absolute',
+                  offsetBottom: '0px',
+                  width: '100%',
+                  backgroundColor: '#000000AA', // 半透明黑底提供良好對比度
+                  paddingAll: 'sm',
+                  contents: [
+                    {
+                      type: 'text',
+                      text: item.label,
+                      color: '#ffffff',
+                      align: 'center',
+                      size: 'xs',
+                      weight: 'bold',
+                      wrap: true
+                    }
+                  ]
+                }
+              ]
+            }
           };
-          // 若有圖，我們把按鈕改成 secondary
-          bubble.body.contents[0].style = 'secondary';
+        } else {
+          // 沒有縮圖時，維持原生乾淨的藍色按鈕
+          return {
+            type: 'bubble',
+            size: 'micro',
+            body: {
+              type: 'box',
+              layout: 'vertical',
+              paddingAll: 'md',
+              contents: [{
+                type: 'button',
+                action: { type: 'message', label: String(item.label).substring(0,20), text: item.keyword },
+                style: 'primary',
+                color: '#1565C0'
+              }]
+            }
+          };
         }
-        return bubble;
       })
     }
   };
