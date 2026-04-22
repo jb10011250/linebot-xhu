@@ -12,6 +12,9 @@ try {
   
   let groupMap = { 'A': [], 'B': [], 'C': [], 'D': [], 'E': [], 'F': [] };
   let mainGridItems = []; // 給首頁六宮格用的
+  
+  // 建立這一次更新的時間戳記，用於強制 LINE 刷新圖片快取
+  const versionStamp = Date.now();
 
   function escapeText(str) {
     if (!str) return '';
@@ -21,16 +24,27 @@ try {
   function buildImageUrlSnippet(fileName) {
     let p = fileName.trim();
     if (p.startsWith('http://') || p.startsWith('https://')) {
+      // 避免破壞外部已經帶參數的網址
       return `\`${escapeText(p)}\``;
     }
-    return `\`\${BASE_URL}/public/${escapeText(p)}\``;
+    // 透過 URL 參數增加快取破壞
+    return `\`\${BASE_URL}/public/${escapeText(p)}?v=${versionStamp}\``;
+  }
+
+  // 處理縮圖的小助手
+  function getBustedThumbnail(fileName) {
+    let p = String(fileName || '').trim();
+    if (!p) return '';
+    if (p.startsWith('http://') || p.startsWith('https://')) return p;
+    return `${p}?v=${versionStamp}`;
   }
 
   rows.forEach(row => {
     const code = String(row['代碼'] || '').trim();
     const keyword = String(row['關鍵字（Key）'] || '').trim();
     const label = String(row['功能說明（顯示文字）'] || '').trim();
-    const thumbnail = String(row['選單縮圖'] || '').trim();
+    const rawThumbnail = String(row['選單縮圖'] || '').trim();
+    const thumbnail = getBustedThumbnail(rawThumbnail);
     
     const w1 = row['回應文字1（W1）'];
     const p1 = row['回應圖片1（P1）'];
