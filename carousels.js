@@ -115,26 +115,26 @@ module.exports.dynamicCarousel = (items, BASE_URL) => {
                   url: url,
                   size: 'full',
                   aspectMode: 'cover',
-                  aspectRatio: '3:4' // 完全配合您的「直立 4:3」設計
+                  aspectRatio: '3:4'
                 },
-                // 真正的全版透明覆蓋層
+                // 全版置中透明覆蓋層
                 {
                   type: 'box',
                   layout: 'vertical',
                   position: 'absolute',
                   width: '100%',
                   height: '100%',
-                  justifyContent: 'flex-end', // 將文字擠到圖片最下緣
-                  backgroundColor: '#00000000', // 完全取消黑底框，採用全透明
-                  paddingAll: 'md',
-                  paddingBottom: 'lg', // 與畫面底端保留完美間距
+                  justifyContent: 'center', // 垂直居中
+                  alignItems: 'center', // 內容水平置中
+                  backgroundColor: '#00000000',
+                  paddingAll: 'lg', // 左右保留一點安全距離
                   contents: [
                     {
                       type: 'text',
                       text: item.label,
-                      color: '#1A365D', // 深海軍藍，讓文字在淡色底圖上極度清晰
+                      color: '#1A365D', // 深海軍藍
                       align: 'center',
-                      size: 'sm',
+                      size: 'xl', // 放成特大字體，如您截圖所示比例
                       weight: 'bold',
                       wrap: true
                     }
