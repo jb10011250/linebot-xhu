@@ -3,6 +3,11 @@ const express = require('express');
 const line = require('@line/bot-sdk');
 const { keywordMap } = require('./keywords');
 const { getReply } = require('./menus');
+const aiService = require('./ai_service'); // 引入 AI 服務層
+
+// 使用暫時的記憶體儲存哪些使用者目前在 AI 模式
+// 注意：Render 免費版重啟時此清單會清空
+const userStates = {}; 
 
 const config = {
   channelSecret: process.env.CHANNEL_SECRET,
@@ -73,8 +78,50 @@ async function handleEvent(event) {
     }
   }
 
+  const userId = event.source.userId;
   let messages = [];
 
+  // --- 關鍵路徑 A: 檢查是否要退出「AI 助理」模式 ---
+  const exitKeywords = ['退出', '結束', '離開', '返回', '跳出'];
+  if (userStates[userId] === 'AI_MODE' && exitKeywords.some(key => text.includes(key))) {
+      userStates[userId] = null;
+      messages = [{ type: 'text', text: `好的，已幫 ${userName} 離開 AI 諮詢模式。回到主選單囉！` }];
+      // 順便把主選單拋出來
+      messages = messages.concat(getReply('NKW'));
+      messages = personalizeMessages(messages, userName);
+      return client.replyMessage(event.replyToken, messages);
+  }
+
+  // --- 關鍵路徑 B: 檢查是否進入「AI 助理」模式 ---
+  // 這邊對應圖文選單 RM4 的關鍵字
+  if (text.includes('AI助理') || text.includes('AI 助理') || text.includes('智能助理')) {
+      userStates[userId] = 'AI_MODE';
+      const welcomeMsg = [
+          { type: 'text', text: `您好 ${userName}！我是「地政 8888」專業 AI 客服。` },
+          { type: 'text', text: `我已準備好為您解答地政、房屋、稅務等問題。\n\n⚠️ 注意：我所有的回答均來自官方知識庫文件。\n若要結束諮詢，請輸入「退出」或「返回」。` }
+      ];
+      return client.replyMessage(event.replyToken, welcomeMsg);
+  }
+
+  // --- 關鍵路徑 C: 處理 AI 模式下的對話流量 ---
+  if (userStates[userId] === 'AI_MODE') {
+      try {
+          // 顯示載入動畫 (如果您的 SDK 版本支援的話)
+          // await client.showLoadingAnimation(event.source.userId, 10);
+          
+          const aiAnswer = await aiService.getAIResponse(text, userName);
+          
+          // AI 回答同樣可以用 personalizeMessages 處理，雖然我們已經在 Prompt 傳過 userName
+          // 但二次過濾確保萬無一失
+          const reply = personalizeMessages([{ type: 'text', text: aiAnswer }], userName);
+          return client.replyMessage(event.replyToken, reply);
+      } catch (err) {
+          console.error("AI 回報錯誤:", err.message);
+          return client.replyMessage(event.replyToken, [{ type: 'text', text: "哎呀，服務稍微斷線了，請再試一次！" }]);
+      }
+  }
+
+  // --- 原有的關鍵字邏輯 (NORMAL_MODE) ---
   if (code) {
     messages = getReply(code);
   } else {
