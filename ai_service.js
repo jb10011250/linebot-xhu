@@ -76,9 +76,17 @@ ${kbText}
 
   for (const modelName of MODELS) {
     try {
-      const model = genAI.getGenerativeModel({ model: modelName });
+      const model = genAI.getGenerativeModel({ 
+        model: modelName,
+        // 強制關閉「思考模型」的思考過程輸出，只回傳最終答案
+        generationConfig: {
+          thinkingConfig: {
+            thinkingBudget: 0  // 0 = 完全停用思考過程，避免輸出一大串英文草稿
+          }
+        }
+      });
       
-      const prompt = `系統指令：${systemPrompt}\n\n用戶提問：${userMessage}\n\nAI 回答：`;
+      const prompt = `${systemPrompt}\n\n用戶提問：${userMessage}\n\n請直接回覆正式中文答案：`;
       
       const result = await model.generateContent(prompt);
       const response = await result.response;
