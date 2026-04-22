@@ -4,10 +4,10 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
-// 模型設定 (依照您的 land-news-ai 邏輯，優先使用額度高的模型)
+// 模型設定 (使用目前最新、穩定且額度高的模型)
 const MODELS = [
-  "gemini-1.5-flash", // 主力：速度快且額度高 (適用於一般諮詢)
-  "gemini-1.5-pro"    // 備援：理解力更深
+  "gemini-2.0-flash",      // 主力：最新快速版，免費額度高
+  "gemini-2.0-flash-lite", // 備援：更輕量，額度更充裕
 ];
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || "");
