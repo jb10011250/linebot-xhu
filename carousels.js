@@ -103,7 +103,7 @@ module.exports.dynamicCarousel = (items, BASE_URL) => {
             
           return {
             type: 'bubble',
-            size: 'kilo', // 改為 kilo，因為有圖文需要更大的伸展空間
+            size: 'micro', // 縮小卡片寬度，讓一次能看到更多張
             body: {
               type: 'box',
               layout: 'vertical',
@@ -112,10 +112,9 @@ module.exports.dynamicCarousel = (items, BASE_URL) => {
               contents: [
                 {
                   type: 'image',
-                  url: url,
                   size: 'full',
                   aspectMode: 'cover',
-                  aspectRatio: '3:4'
+                  aspectRatio: '3:2' // 寬比高 = 3:2，精準裁切下半部
                 },
                 // 全版置中透明覆蓋層
                 {
@@ -127,14 +126,14 @@ module.exports.dynamicCarousel = (items, BASE_URL) => {
                   justifyContent: 'center', // 垂直居中
                   alignItems: 'center', // 內容水平置中
                   backgroundColor: '#00000000',
-                  paddingAll: 'lg', // 左右保留一點安全距離
+                  paddingAll: 'sm', 
                   contents: [
                     {
                       type: 'text',
                       text: item.label,
-                      color: '#1A365D', // 深海軍藍
+                      color: '#1A365D',
                       align: 'center',
-                      size: 'xl', // 放成特大字體，如您截圖所示比例
+                      size: 'xxl', // 採用極大字體
                       weight: 'bold',
                       wrap: true
                     }
